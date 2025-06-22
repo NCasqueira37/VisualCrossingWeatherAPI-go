@@ -8,7 +8,8 @@ import (
 )
 
 type weather struct {
-	Timezone string
+	Timezone        string
+	Resolvedaddress string
 
 	Days []struct {
 		Datetime    string
@@ -42,6 +43,8 @@ func main() {
 		fmt.Println(err)
 		return
 	}
+
+	fmt.Println("Address:", result.Resolvedaddress)
 	fmt.Println("Date:", result.Days[0].Datetime)
 	fmt.Println("Temperature:", result.Days[0].Temp)
 	fmt.Println("Max Temperature:", result.Days[0].Tempmax)
